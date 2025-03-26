@@ -54,14 +54,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var promptInfo : BiometricPrompt.PromptInfo
 
     private fun setupAuth(){
-        if (BiometricManager.from(this).canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or
+        if (BiometricManager.from(this).canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.BIOMETRIC_WEAK or
         BiometricManager.Authenticators.DEVICE_CREDENTIAL) == BiometricManager.BIOMETRIC_SUCCESS){
             canAuthenticate = true
 
             promptInfo = BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Autenticacion biometrica")
                 .setSubtitle("Autenticate utilizando el sensor biometrico")
-                .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG or
+                .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.BIOMETRIC_WEAK or
                         BiometricManager.Authenticators.DEVICE_CREDENTIAL)
                 .build()
         }
